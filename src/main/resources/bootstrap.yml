@@ -1,0 +1,9 @@
+spring:
+  profiles.active: ${profile:default}
+  cloud:
+    config:
+      uri: http://springcloudconfig.a6-train-dev.dev.pcep.cloud/
+      username: root
+      password: a6s3cr3t
+  application:
+    name: 1000demo-mybatis

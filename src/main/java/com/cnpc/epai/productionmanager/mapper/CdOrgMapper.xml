@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cnpc.epai.productionmanager.mapper.CdOrgMapper">
+  <resultMap id="BaseResultMap" type="com.cnpc.epai.productionmanager.pojo.CdOrg">
+    <id column="ORG_ID" jdbcType="VARCHAR" property="orgId" />
+    <result column="ORG_NAME" jdbcType="OTHER" property="orgName" />
+    <result column="EN_ORG_NAME" jdbcType="OTHER" property="enOrgName" />
+    <result column="LOCAL_ORG_NAME" jdbcType="OTHER" property="localOrgName" />
+    <result column="ORG_SHORT_NAME" jdbcType="OTHER" property="orgShortName" />
+    <result column="CORPORATE_REPRESENTATIVE" jdbcType="OTHER" property="corporateRepresentative" />
+    <result column="ORG_DESC" jdbcType="OTHER" property="orgDesc" />
+    <result column="ORG_CODE" jdbcType="OTHER" property="orgCode" />
+    <result column="ORG_TYPE" jdbcType="OTHER" property="orgType" />
+    <result column="ORG_FUNCTION" jdbcType="OTHER" property="orgFunction" />
+    <result column="ORG_LEVEL" jdbcType="OTHER" property="orgLevel" />
+    <result column="ORG_ADM_LEVEL" jdbcType="OTHER" property="orgAdmLevel" />
+    <result column="CANTON" jdbcType="OTHER" property="canton" />
+    <result column="CANTON_CODE" jdbcType="OTHER" property="cantonCode" />
+    <result column="ADDRESS" jdbcType="OTHER" property="address" />
+    <result column="HOME_URL" jdbcType="OTHER" property="homeUrl" />
+    <result column="AUTHORIZED_ORG_IF" jdbcType="CHAR" property="authorizedOrgIf" />
+    <result column="FORBID_IF" jdbcType="CHAR" property="forbidIf" />
+    <result column="IS_EMPTY_ORG" jdbcType="CHAR" property="isEmptyOrg" />
+    <result column="CURRENT_STATE" jdbcType="OTHER" property="currentState" />
+    <result column="REMARKS" jdbcType="OTHER" property="remarks" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_USER_ID" jdbcType="OTHER" property="createUserId" />
+    <result column="CREATE_APP_ID" jdbcType="OTHER" property="createAppId" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_USER_ID" jdbcType="OTHER" property="updateUserId" />
+    <result column="CHECK_DATE" jdbcType="TIMESTAMP" property="checkDate" />
+    <result column="CHECK_USER_ID" jdbcType="OTHER" property="checkUserId" />
+    <result column="MDM_CODE" jdbcType="VARCHAR" property="mdmCode" />
+    <result column="CANTON_DESC" jdbcType="OTHER" property="cantonDesc" />
+    <result column="COMPANY_ID" jdbcType="VARCHAR" property="companyId" />
+    <result column="CUSTOMER_DIVISION" jdbcType="OTHER" property="customerDivision" />
+    <result column="CUSTOMER_GROUP" jdbcType="OTHER" property="customerGroup" />
+    <result column="CUSTOMER_TELEPHONE" jdbcType="OTHER" property="customerTelephone" />
+    <result column="REPORTING_STANDARD" jdbcType="DECIMAL" property="reportingStandard" />
+    <result column="REPORTING_TIME" jdbcType="TIMESTAMP" property="reportingTime" />
+    <result column="ATTACHMENT_JOURNAL_ID" jdbcType="OTHER" property="attachmentJournalId" />
+    <result column="MUST_VERIFY_FLAG" jdbcType="OTHER" property="mustVerifyFlag" />
+    <result column="OIL_FIELD" jdbcType="OTHER" property="oilField" />
+    <result column="BSFLAG" jdbcType="OTHER" property="bsflag" />
+    <result column="SEND_INDICATE" jdbcType="OTHER" property="sendIndicate" />
+    <result column="CREATE_ORG_ID" jdbcType="OTHER" property="createOrgId" />
+    <result column="UPDATE_ORG_ID" jdbcType="OTHER" property="updateOrgId" />
+    <result column="SOURCE" jdbcType="OTHER" property="source" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORG_ID, ORG_NAME, EN_ORG_NAME, LOCAL_ORG_NAME, ORG_SHORT_NAME, CORPORATE_REPRESENTATIVE, 
+    ORG_DESC, ORG_CODE, ORG_TYPE, ORG_FUNCTION, ORG_LEVEL, ORG_ADM_LEVEL, CANTON, CANTON_CODE, 
+    ADDRESS, HOME_URL, AUTHORIZED_ORG_IF, FORBID_IF, IS_EMPTY_ORG, CURRENT_STATE, REMARKS, 
+    CREATE_DATE, CREATE_USER_ID, CREATE_APP_ID, UPDATE_DATE, UPDATE_USER_ID, CHECK_DATE, 
+    CHECK_USER_ID, MDM_CODE, CANTON_DESC, COMPANY_ID, CUSTOMER_DIVISION, CUSTOMER_GROUP, 
+    CUSTOMER_TELEPHONE, REPORTING_STANDARD, REPORTING_TIME, ATTACHMENT_JOURNAL_ID, MUST_VERIFY_FLAG, 
+    OIL_FIELD, BSFLAG, SEND_INDICATE, CREATE_ORG_ID, UPDATE_ORG_ID, SOURCE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CD_ORGANIZATION
+    where ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CD_ORGANIZATION
+    where ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cnpc.epai.productionmanager.pojo.CdOrg">
+    insert into CD_ORGANIZATION (ORG_ID, ORG_NAME, EN_ORG_NAME, 
+      LOCAL_ORG_NAME, ORG_SHORT_NAME, CORPORATE_REPRESENTATIVE, 
+      ORG_DESC, ORG_CODE, ORG_TYPE, 
+      ORG_FUNCTION, ORG_LEVEL, ORG_ADM_LEVEL, 
+      CANTON, CANTON_CODE, ADDRESS, 
+      HOME_URL, AUTHORIZED_ORG_IF, FORBID_IF, 
+      IS_EMPTY_ORG, CURRENT_STATE, REMARKS, 
+      CREATE_DATE, CREATE_USER_ID, CREATE_APP_ID, 
+      UPDATE_DATE, UPDATE_USER_ID, CHECK_DATE, 
+      CHECK_USER_ID, MDM_CODE, CANTON_DESC, 
+      COMPANY_ID, CUSTOMER_DIVISION, CUSTOMER_GROUP, 
+      CUSTOMER_TELEPHONE, REPORTING_STANDARD, REPORTING_TIME, 
+      ATTACHMENT_JOURNAL_ID, MUST_VERIFY_FLAG, OIL_FIELD, 
+      BSFLAG, SEND_INDICATE, CREATE_ORG_ID, 
+      UPDATE_ORG_ID, SOURCE)
+    values (#{orgId,jdbcType=VARCHAR}, #{orgName,jdbcType=OTHER}, #{enOrgName,jdbcType=OTHER}, 
+      #{localOrgName,jdbcType=OTHER}, #{orgShortName,jdbcType=OTHER}, #{corporateRepresentative,jdbcType=OTHER}, 
+      #{orgDesc,jdbcType=OTHER}, #{orgCode,jdbcType=OTHER}, #{orgType,jdbcType=OTHER}, 
+      #{orgFunction,jdbcType=OTHER}, #{orgLevel,jdbcType=OTHER}, #{orgAdmLevel,jdbcType=OTHER}, 
+      #{canton,jdbcType=OTHER}, #{cantonCode,jdbcType=OTHER}, #{address,jdbcType=OTHER}, 
+      #{homeUrl,jdbcType=OTHER}, #{authorizedOrgIf,jdbcType=CHAR}, #{forbidIf,jdbcType=CHAR}, 
+      #{isEmptyOrg,jdbcType=CHAR}, #{currentState,jdbcType=OTHER}, #{remarks,jdbcType=OTHER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=OTHER}, #{createAppId,jdbcType=OTHER}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=OTHER}, #{checkDate,jdbcType=TIMESTAMP}, 
+      #{checkUserId,jdbcType=OTHER}, #{mdmCode,jdbcType=VARCHAR}, #{cantonDesc,jdbcType=OTHER}, 
+      #{companyId,jdbcType=VARCHAR}, #{customerDivision,jdbcType=OTHER}, #{customerGroup,jdbcType=OTHER}, 
+      #{customerTelephone,jdbcType=OTHER}, #{reportingStandard,jdbcType=DECIMAL}, #{reportingTime,jdbcType=TIMESTAMP}, 
+      #{attachmentJournalId,jdbcType=OTHER}, #{mustVerifyFlag,jdbcType=OTHER}, #{oilField,jdbcType=OTHER}, 
+      #{bsflag,jdbcType=OTHER}, #{sendIndicate,jdbcType=OTHER}, #{createOrgId,jdbcType=OTHER}, 
+      #{updateOrgId,jdbcType=OTHER}, #{source,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cnpc.epai.productionmanager.pojo.CdOrg">
+    insert into CD_ORGANIZATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="orgName != null">
+        ORG_NAME,
+      </if>
+      <if test="enOrgName != null">
+        EN_ORG_NAME,
+      </if>
+      <if test="localOrgName != null">
+        LOCAL_ORG_NAME,
+      </if>
+      <if test="orgShortName != null">
+        ORG_SHORT_NAME,
+      </if>
+      <if test="corporateRepresentative != null">
+        CORPORATE_REPRESENTATIVE,
+      </if>
+      <if test="orgDesc != null">
+        ORG_DESC,
+      </if>
+      <if test="orgCode != null">
+        ORG_CODE,
+      </if>
+      <if test="orgType != null">
+        ORG_TYPE,
+      </if>
+      <if test="orgFunction != null">
+        ORG_FUNCTION,
+      </if>
+      <if test="orgLevel != null">
+        ORG_LEVEL,
+      </if>
+      <if test="orgAdmLevel != null">
+        ORG_ADM_LEVEL,
+      </if>
+      <if test="canton != null">
+        CANTON,
+      </if>
+      <if test="cantonCode != null">
+        CANTON_CODE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="homeUrl != null">
+        HOME_URL,
+      </if>
+      <if test="authorizedOrgIf != null">
+        AUTHORIZED_ORG_IF,
+      </if>
+      <if test="forbidIf != null">
+        FORBID_IF,
+      </if>
+      <if test="isEmptyOrg != null">
+        IS_EMPTY_ORG,
+      </if>
+      <if test="currentState != null">
+        CURRENT_STATE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID,
+      </if>
+      <if test="createAppId != null">
+        CREATE_APP_ID,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateUserId != null">
+        UPDATE_USER_ID,
+      </if>
+      <if test="checkDate != null">
+        CHECK_DATE,
+      </if>
+      <if test="checkUserId != null">
+        CHECK_USER_ID,
+      </if>
+      <if test="mdmCode != null">
+        MDM_CODE,
+      </if>
+      <if test="cantonDesc != null">
+        CANTON_DESC,
+      </if>
+      <if test="companyId != null">
+        COMPANY_ID,
+      </if>
+      <if test="customerDivision != null">
+        CUSTOMER_DIVISION,
+      </if>
+      <if test="customerGroup != null">
+        CUSTOMER_GROUP,
+      </if>
+      <if test="customerTelephone != null">
+        CUSTOMER_TELEPHONE,
+      </if>
+      <if test="reportingStandard != null">
+        REPORTING_STANDARD,
+      </if>
+      <if test="reportingTime != null">
+        REPORTING_TIME,
+      </if>
+      <if test="attachmentJournalId != null">
+        ATTACHMENT_JOURNAL_ID,
+      </if>
+      <if test="mustVerifyFlag != null">
+        MUST_VERIFY_FLAG,
+      </if>
+      <if test="oilField != null">
+        OIL_FIELD,
+      </if>
+      <if test="bsflag != null">
+        BSFLAG,
+      </if>
+      <if test="sendIndicate != null">
+        SEND_INDICATE,
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID,
+      </if>
+      <if test="updateOrgId != null">
+        UPDATE_ORG_ID,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orgId != null">
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=OTHER},
+      </if>
+      <if test="enOrgName != null">
+        #{enOrgName,jdbcType=OTHER},
+      </if>
+      <if test="localOrgName != null">
+        #{localOrgName,jdbcType=OTHER},
+      </if>
+      <if test="orgShortName != null">
+        #{orgShortName,jdbcType=OTHER},
+      </if>
+      <if test="corporateRepresentative != null">
+        #{corporateRepresentative,jdbcType=OTHER},
+      </if>
+      <if test="orgDesc != null">
+        #{orgDesc,jdbcType=OTHER},
+      </if>
+      <if test="orgCode != null">
+        #{orgCode,jdbcType=OTHER},
+      </if>
+      <if test="orgType != null">
+        #{orgType,jdbcType=OTHER},
+      </if>
+      <if test="orgFunction != null">
+        #{orgFunction,jdbcType=OTHER},
+      </if>
+      <if test="orgLevel != null">
+        #{orgLevel,jdbcType=OTHER},
+      </if>
+      <if test="orgAdmLevel != null">
+        #{orgAdmLevel,jdbcType=OTHER},
+      </if>
+      <if test="canton != null">
+        #{canton,jdbcType=OTHER},
+      </if>
+      <if test="cantonCode != null">
+        #{cantonCode,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=OTHER},
+      </if>
+      <if test="homeUrl != null">
+        #{homeUrl,jdbcType=OTHER},
+      </if>
+      <if test="authorizedOrgIf != null">
+        #{authorizedOrgIf,jdbcType=CHAR},
+      </if>
+      <if test="forbidIf != null">
+        #{forbidIf,jdbcType=CHAR},
+      </if>
+      <if test="isEmptyOrg != null">
+        #{isEmptyOrg,jdbcType=CHAR},
+      </if>
+      <if test="currentState != null">
+        #{currentState,jdbcType=OTHER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=OTHER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=OTHER},
+      </if>
+      <if test="createAppId != null">
+        #{createAppId,jdbcType=OTHER},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=OTHER},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUserId != null">
+        #{checkUserId,jdbcType=OTHER},
+      </if>
+      <if test="mdmCode != null">
+        #{mdmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cantonDesc != null">
+        #{cantonDesc,jdbcType=OTHER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerDivision != null">
+        #{customerDivision,jdbcType=OTHER},
+      </if>
+      <if test="customerGroup != null">
+        #{customerGroup,jdbcType=OTHER},
+      </if>
+      <if test="customerTelephone != null">
+        #{customerTelephone,jdbcType=OTHER},
+      </if>
+      <if test="reportingStandard != null">
+        #{reportingStandard,jdbcType=DECIMAL},
+      </if>
+      <if test="reportingTime != null">
+        #{reportingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attachmentJournalId != null">
+        #{attachmentJournalId,jdbcType=OTHER},
+      </if>
+      <if test="mustVerifyFlag != null">
+        #{mustVerifyFlag,jdbcType=OTHER},
+      </if>
+      <if test="oilField != null">
+        #{oilField,jdbcType=OTHER},
+      </if>
+      <if test="bsflag != null">
+        #{bsflag,jdbcType=OTHER},
+      </if>
+      <if test="sendIndicate != null">
+        #{sendIndicate,jdbcType=OTHER},
+      </if>
+      <if test="createOrgId != null">
+        #{createOrgId,jdbcType=OTHER},
+      </if>
+      <if test="updateOrgId != null">
+        #{updateOrgId,jdbcType=OTHER},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cnpc.epai.productionmanager.pojo.CdOrg">
+    update CD_ORGANIZATION
+    <set>
+      <if test="orgName != null">
+        ORG_NAME = #{orgName,jdbcType=OTHER},
+      </if>
+      <if test="enOrgName != null">
+        EN_ORG_NAME = #{enOrgName,jdbcType=OTHER},
+      </if>
+      <if test="localOrgName != null">
+        LOCAL_ORG_NAME = #{localOrgName,jdbcType=OTHER},
+      </if>
+      <if test="orgShortName != null">
+        ORG_SHORT_NAME = #{orgShortName,jdbcType=OTHER},
+      </if>
+      <if test="corporateRepresentative != null">
+        CORPORATE_REPRESENTATIVE = #{corporateRepresentative,jdbcType=OTHER},
+      </if>
+      <if test="orgDesc != null">
+        ORG_DESC = #{orgDesc,jdbcType=OTHER},
+      </if>
+      <if test="orgCode != null">
+        ORG_CODE = #{orgCode,jdbcType=OTHER},
+      </if>
+      <if test="orgType != null">
+        ORG_TYPE = #{orgType,jdbcType=OTHER},
+      </if>
+      <if test="orgFunction != null">
+        ORG_FUNCTION = #{orgFunction,jdbcType=OTHER},
+      </if>
+      <if test="orgLevel != null">
+        ORG_LEVEL = #{orgLevel,jdbcType=OTHER},
+      </if>
+      <if test="orgAdmLevel != null">
+        ORG_ADM_LEVEL = #{orgAdmLevel,jdbcType=OTHER},
+      </if>
+      <if test="canton != null">
+        CANTON = #{canton,jdbcType=OTHER},
+      </if>
+      <if test="cantonCode != null">
+        CANTON_CODE = #{cantonCode,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=OTHER},
+      </if>
+      <if test="homeUrl != null">
+        HOME_URL = #{homeUrl,jdbcType=OTHER},
+      </if>
+      <if test="authorizedOrgIf != null">
+        AUTHORIZED_ORG_IF = #{authorizedOrgIf,jdbcType=CHAR},
+      </if>
+      <if test="forbidIf != null">
+        FORBID_IF = #{forbidIf,jdbcType=CHAR},
+      </if>
+      <if test="isEmptyOrg != null">
+        IS_EMPTY_ORG = #{isEmptyOrg,jdbcType=CHAR},
+      </if>
+      <if test="currentState != null">
+        CURRENT_STATE = #{currentState,jdbcType=OTHER},
+      </if>
+      <if test="remarks != null">
+        REMARKS = #{remarks,jdbcType=OTHER},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID = #{createUserId,jdbcType=OTHER},
+      </if>
+      <if test="createAppId != null">
+        CREATE_APP_ID = #{createAppId,jdbcType=OTHER},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        UPDATE_USER_ID = #{updateUserId,jdbcType=OTHER},
+      </if>
+      <if test="checkDate != null">
+        CHECK_DATE = #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUserId != null">
+        CHECK_USER_ID = #{checkUserId,jdbcType=OTHER},
+      </if>
+      <if test="mdmCode != null">
+        MDM_CODE = #{mdmCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cantonDesc != null">
+        CANTON_DESC = #{cantonDesc,jdbcType=OTHER},
+      </if>
+      <if test="companyId != null">
+        COMPANY_ID = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerDivision != null">
+        CUSTOMER_DIVISION = #{customerDivision,jdbcType=OTHER},
+      </if>
+      <if test="customerGroup != null">
+        CUSTOMER_GROUP = #{customerGroup,jdbcType=OTHER},
+      </if>
+      <if test="customerTelephone != null">
+        CUSTOMER_TELEPHONE = #{customerTelephone,jdbcType=OTHER},
+      </if>
+      <if test="reportingStandard != null">
+        REPORTING_STANDARD = #{reportingStandard,jdbcType=DECIMAL},
+      </if>
+      <if test="reportingTime != null">
+        REPORTING_TIME = #{reportingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attachmentJournalId != null">
+        ATTACHMENT_JOURNAL_ID = #{attachmentJournalId,jdbcType=OTHER},
+      </if>
+      <if test="mustVerifyFlag != null">
+        MUST_VERIFY_FLAG = #{mustVerifyFlag,jdbcType=OTHER},
+      </if>
+      <if test="oilField != null">
+        OIL_FIELD = #{oilField,jdbcType=OTHER},
+      </if>
+      <if test="bsflag != null">
+        BSFLAG = #{bsflag,jdbcType=OTHER},
+      </if>
+      <if test="sendIndicate != null">
+        SEND_INDICATE = #{sendIndicate,jdbcType=OTHER},
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID = #{createOrgId,jdbcType=OTHER},
+      </if>
+      <if test="updateOrgId != null">
+        UPDATE_ORG_ID = #{updateOrgId,jdbcType=OTHER},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=OTHER},
+      </if>
+    </set>
+    where ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cnpc.epai.productionmanager.pojo.CdOrg">
+    update CD_ORGANIZATION
+    set ORG_NAME = #{orgName,jdbcType=OTHER},
+      EN_ORG_NAME = #{enOrgName,jdbcType=OTHER},
+      LOCAL_ORG_NAME = #{localOrgName,jdbcType=OTHER},
+      ORG_SHORT_NAME = #{orgShortName,jdbcType=OTHER},
+      CORPORATE_REPRESENTATIVE = #{corporateRepresentative,jdbcType=OTHER},
+      ORG_DESC = #{orgDesc,jdbcType=OTHER},
+      ORG_CODE = #{orgCode,jdbcType=OTHER},
+      ORG_TYPE = #{orgType,jdbcType=OTHER},
+      ORG_FUNCTION = #{orgFunction,jdbcType=OTHER},
+      ORG_LEVEL = #{orgLevel,jdbcType=OTHER},
+      ORG_ADM_LEVEL = #{orgAdmLevel,jdbcType=OTHER},
+      CANTON = #{canton,jdbcType=OTHER},
+      CANTON_CODE = #{cantonCode,jdbcType=OTHER},
+      ADDRESS = #{address,jdbcType=OTHER},
+      HOME_URL = #{homeUrl,jdbcType=OTHER},
+      AUTHORIZED_ORG_IF = #{authorizedOrgIf,jdbcType=CHAR},
+      FORBID_IF = #{forbidIf,jdbcType=CHAR},
+      IS_EMPTY_ORG = #{isEmptyOrg,jdbcType=CHAR},
+      CURRENT_STATE = #{currentState,jdbcType=OTHER},
+      REMARKS = #{remarks,jdbcType=OTHER},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      CREATE_USER_ID = #{createUserId,jdbcType=OTHER},
+      CREATE_APP_ID = #{createAppId,jdbcType=OTHER},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      UPDATE_USER_ID = #{updateUserId,jdbcType=OTHER},
+      CHECK_DATE = #{checkDate,jdbcType=TIMESTAMP},
+      CHECK_USER_ID = #{checkUserId,jdbcType=OTHER},
+      MDM_CODE = #{mdmCode,jdbcType=VARCHAR},
+      CANTON_DESC = #{cantonDesc,jdbcType=OTHER},
+      COMPANY_ID = #{companyId,jdbcType=VARCHAR},
+      CUSTOMER_DIVISION = #{customerDivision,jdbcType=OTHER},
+      CUSTOMER_GROUP = #{customerGroup,jdbcType=OTHER},
+      CUSTOMER_TELEPHONE = #{customerTelephone,jdbcType=OTHER},
+      REPORTING_STANDARD = #{reportingStandard,jdbcType=DECIMAL},
+      REPORTING_TIME = #{reportingTime,jdbcType=TIMESTAMP},
+      ATTACHMENT_JOURNAL_ID = #{attachmentJournalId,jdbcType=OTHER},
+      MUST_VERIFY_FLAG = #{mustVerifyFlag,jdbcType=OTHER},
+      OIL_FIELD = #{oilField,jdbcType=OTHER},
+      BSFLAG = #{bsflag,jdbcType=OTHER},
+      SEND_INDICATE = #{sendIndicate,jdbcType=OTHER},
+      CREATE_ORG_ID = #{createOrgId,jdbcType=OTHER},
+      UPDATE_ORG_ID = #{updateOrgId,jdbcType=OTHER},
+      SOURCE = #{source,jdbcType=OTHER}
+    where ORG_ID = #{orgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

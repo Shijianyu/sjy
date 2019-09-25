@@ -1,0 +1,24 @@
+#epai:
+#  service_prefix: /sys/test
+#mybatis:
+#  mapper-locations: classpath:com/cnpc/epai/productionmanager/mapper/**/*Mapper.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    vfs-impl: org.mybatis.spring.boot.autoconfigure.SpringBootVFS
+#eureka:
+#  client:
+#    fetchRegistry: true
+#    registerWithEureka: true
+#    serviceUrl:
+#      defaultZone: http://a6-1006eureka:8761/eureka/
+#  instance:
+#    preferIpAddress: true
+#spring:
+#  datasource:
+#    driverClassName: org.h2.Driver
+#    #    initialize: false
+#    #    password: 123
+#    url: jdbc:h2:mem:test
+#    #    username: root
+#    schema: classpath:db/schema.sql
+#    data: classpath:db/data.sql

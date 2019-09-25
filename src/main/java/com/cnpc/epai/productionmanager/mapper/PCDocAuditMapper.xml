@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cnpc.epai.productionmanager.mapper.PCDocAuditMapper">
+  <resultMap id="BaseResultMap" type="com.cnpc.epai.productionmanager.pojo.PCDocAudit">
+    <id column="DOCU_AUDIT_ID" jdbcType="OTHER" property="docuAuditId" />
+    <result column="FILE_ID" jdbcType="OTHER" property="fileId" />
+    <result column="FILE_CLASS" jdbcType="OTHER" property="fileClass" />
+    <result column="RECODER_ID" jdbcType="OTHER" property="recoderId" />
+    <result column="AUDIT_ORG_ID" jdbcType="OTHER" property="auditOrgId" />
+    <result column="AUDIT_USER_ID" jdbcType="OTHER" property="auditUserId" />
+    <result column="AUDIT_TIME" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="AUDIT_OPINION" jdbcType="OTHER" property="auditOpinion" />
+    <result column="AUDIT_STATUS" jdbcType="OTHER" property="auditStatus" />
+    <result column="IS_JOINT_HEARING" jdbcType="OTHER" property="isJointHearing" />
+    <result column="HEARING_ORG" jdbcType="OTHER" property="hearingOrg" />
+    <result column="CREATE_USER" jdbcType="OTHER" property="createUser" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_USER" jdbcType="OTHER" property="updateUser" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="FILE_NAME" jdbcType="OTHER" property="fileName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DOCU_AUDIT_ID, FILE_ID, FILE_CLASS, RECODER_ID, AUDIT_ORG_ID, AUDIT_USER_ID, AUDIT_TIME, 
+    AUDIT_OPINION, AUDIT_STATUS, IS_JOINT_HEARING, HEARING_ORG, CREATE_USER, CREATE_DATE, 
+    UPDATE_USER, UPDATE_DATE, FILE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Object" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PC_DOCU_AUDIT
+    where DOCU_AUDIT_ID = #{docuAuditId,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Object">
+    delete from PC_DOCU_AUDIT
+    where DOCU_AUDIT_ID = #{docuAuditId,jdbcType=OTHER}
+  </delete>
+  <insert id="insert" parameterType="com.cnpc.epai.productionmanager.pojo.PCDocAudit">
+    insert into PC_DOCU_AUDIT (DOCU_AUDIT_ID, FILE_ID, FILE_CLASS, 
+      RECODER_ID, AUDIT_ORG_ID, AUDIT_USER_ID, 
+      AUDIT_TIME, AUDIT_OPINION, AUDIT_STATUS, 
+      IS_JOINT_HEARING, HEARING_ORG, CREATE_USER, 
+      CREATE_DATE, UPDATE_USER, UPDATE_DATE, 
+      FILE_NAME)
+    values (#{docuAuditId,jdbcType=OTHER}, #{fileId,jdbcType=OTHER}, #{fileClass,jdbcType=OTHER}, 
+      #{recoderId,jdbcType=OTHER}, #{auditOrgId,jdbcType=OTHER}, #{auditUserId,jdbcType=OTHER}, 
+      #{auditTime,jdbcType=TIMESTAMP}, #{auditOpinion,jdbcType=OTHER}, #{auditStatus,jdbcType=OTHER}, 
+      #{isJointHearing,jdbcType=OTHER}, #{hearingOrg,jdbcType=OTHER}, #{createUser,jdbcType=OTHER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=OTHER}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{fileName,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cnpc.epai.productionmanager.pojo.PCDocAudit">
+    insert into PC_DOCU_AUDIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="docuAuditId != null">
+        DOCU_AUDIT_ID,
+      </if>
+      <if test="fileId != null">
+        FILE_ID,
+      </if>
+      <if test="fileClass != null">
+        FILE_CLASS,
+      </if>
+      <if test="recoderId != null">
+        RECODER_ID,
+      </if>
+      <if test="auditOrgId != null">
+        AUDIT_ORG_ID,
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID,
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME,
+      </if>
+      <if test="auditOpinion != null">
+        AUDIT_OPINION,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="isJointHearing != null">
+        IS_JOINT_HEARING,
+      </if>
+      <if test="hearingOrg != null">
+        HEARING_ORG,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="fileName != null">
+        FILE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="docuAuditId != null">
+        #{docuAuditId,jdbcType=OTHER},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=OTHER},
+      </if>
+      <if test="fileClass != null">
+        #{fileClass,jdbcType=OTHER},
+      </if>
+      <if test="recoderId != null">
+        #{recoderId,jdbcType=OTHER},
+      </if>
+      <if test="auditOrgId != null">
+        #{auditOrgId,jdbcType=OTHER},
+      </if>
+      <if test="auditUserId != null">
+        #{auditUserId,jdbcType=OTHER},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditOpinion != null">
+        #{auditOpinion,jdbcType=OTHER},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=OTHER},
+      </if>
+      <if test="isJointHearing != null">
+        #{isJointHearing,jdbcType=OTHER},
+      </if>
+      <if test="hearingOrg != null">
+        #{hearingOrg,jdbcType=OTHER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=OTHER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=OTHER},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cnpc.epai.productionmanager.pojo.PCDocAudit">
+    update PC_DOCU_AUDIT
+    <set>
+      <if test="fileId != null">
+        FILE_ID = #{fileId,jdbcType=OTHER},
+      </if>
+      <if test="fileClass != null">
+        FILE_CLASS = #{fileClass,jdbcType=OTHER},
+      </if>
+      <if test="recoderId != null">
+        RECODER_ID = #{recoderId,jdbcType=OTHER},
+      </if>
+      <if test="auditOrgId != null">
+        AUDIT_ORG_ID = #{auditOrgId,jdbcType=OTHER},
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID = #{auditUserId,jdbcType=OTHER},
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditOpinion != null">
+        AUDIT_OPINION = #{auditOpinion,jdbcType=OTHER},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=OTHER},
+      </if>
+      <if test="isJointHearing != null">
+        IS_JOINT_HEARING = #{isJointHearing,jdbcType=OTHER},
+      </if>
+      <if test="hearingOrg != null">
+        HEARING_ORG = #{hearingOrg,jdbcType=OTHER},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=OTHER},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=OTHER},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileName != null">
+        FILE_NAME = #{fileName,jdbcType=OTHER},
+      </if>
+    </set>
+    where DOCU_AUDIT_ID = #{docuAuditId,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cnpc.epai.productionmanager.pojo.PCDocAudit">
+    update PC_DOCU_AUDIT
+    set FILE_ID = #{fileId,jdbcType=OTHER},
+      FILE_CLASS = #{fileClass,jdbcType=OTHER},
+      RECODER_ID = #{recoderId,jdbcType=OTHER},
+      AUDIT_ORG_ID = #{auditOrgId,jdbcType=OTHER},
+      AUDIT_USER_ID = #{auditUserId,jdbcType=OTHER},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      AUDIT_OPINION = #{auditOpinion,jdbcType=OTHER},
+      AUDIT_STATUS = #{auditStatus,jdbcType=OTHER},
+      IS_JOINT_HEARING = #{isJointHearing,jdbcType=OTHER},
+      HEARING_ORG = #{hearingOrg,jdbcType=OTHER},
+      CREATE_USER = #{createUser,jdbcType=OTHER},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=OTHER},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      FILE_NAME = #{fileName,jdbcType=OTHER}
+    where DOCU_AUDIT_ID = #{docuAuditId,jdbcType=OTHER}
+  </update>
+</mapper>
